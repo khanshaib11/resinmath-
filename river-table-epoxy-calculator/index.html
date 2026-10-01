@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>River Table Epoxy Calculator — How Much Resin Do I Need? | ResinMath</title>
+  <meta name="description" content="Free river table epoxy calculator. Enter length, average width and depth to get exactly how much deep-pour resin you need in gallons, liters, fl oz, ml and weight, plus how many pours.">
+  <link rel="canonical" href="https://resinmath.pages.dev/river-table-epoxy-calculator/">
+  <meta name="theme-color" content="#070a14">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ResinMath">
+  <meta property="og:title" content="River Table Epoxy Calculator">
+  <meta property="og:description" content="Exactly how much deep-pour epoxy your river table needs, including waste and the number of pours.">
+  <meta property="og:url" content="https://resinmath.pages.dev/river-table-epoxy-calculator/">
+  <meta property="og:image" content="https://resinmath.pages.dev/assets/img/resin-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  [{"@context":"https://schema.org","@type":"WebApplication","name":"River Table Epoxy Calculator","url":"https://resinmath.pages.dev/river-table-epoxy-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://resinmath.pages.dev/"},{"@type":"ListItem","position":2,"name":"River Table Epoxy Calculator","item":"https://resinmath.pages.dev/river-table-epoxy-calculator/"}]},
+   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much epoxy do I need for a river table?","acceptedAnswer":{"@type":"Answer","text":"Multiply river length × average width × depth in inches, divide by 231 to get US gallons, then add 10–15% for waste. A 72 × 8 × 1.5 inch river needs about 3.7 gallons, or roughly 4.1 gallons with 10% extra."}},
+    {"@type":"Question","name":"How do I measure the average width of an irregular river?","acceptedAnswer":{"@type":"Answer","text":"Measure the river's width every 4–6 inches along its length, add the measurements together and divide by how many you took."}},
+    {"@type":"Question","name":"How deep can I pour epoxy in one layer?","acceptedAnswer":{"@type":"Answer","text":"It depends on the product. Tabletop epoxies are usually limited to about 1/8–1/4 inch, while deep-pour casting resins allow 1–4 inches per layer. Always check the manufacturer's maximum pour depth."}},
+    {"@type":"Question","name":"Should I seal the wood before pouring?","acceptedAnswer":{"@type":"Answer","text":"Yes. A thin seal coat on the live edges prevents air bubbles escaping from the wood into the pour. Budget roughly 3–5% extra resin for sealing."}}
+   ]}]
+  </script>
+</head>
+<body>
+  <div class="bg-resin" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a href="/" class="logo" id="logo-link"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="#070a14"><path d="M12 2.5c-.3 0-.6.2-.8.4C8.6 6.4 5.5 10.6 5.5 14.3a6.5 6.5 0 0 0 13 0c0-3.7-3.1-7.9-5.7-11.4-.2-.2-.5-.4-.8-.4z"/></svg></span>ResinMath</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/river-table-epoxy-calculator/" aria-current="page">River Table</a></li>
+        <li><a href="/resin-coating-calculator/">Coating</a></li>
+        <li><a href="/resin-mold-volume-calculator/">Molds</a></li>
+        <li><a href="/resin-mix-ratio-calculator/">Mix Ratio</a></li>
+        <li><a href="/resin-cost-calculator/">Cost</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="unit-toggle" role="group" aria-label="Unit system"><span class="pill"></span><button type="button" id="unit-imperial" data-unit="imperial">in / oz</button><button type="button" id="unit-metric" data-unit="metric">cm / ml</button></div>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / River Table Epoxy Calculator</div>
+        <h1>River Table <span class="grad-text">Epoxy Calculator</span></h1>
+        <p class="lead">Enter your river's size to see exactly how much deep-pour resin to buy, how much it weighs, how to split Part A and Part B, and how many pours it will take.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="calc-wrap">
+        <form class="calc-panel glass" data-calc onsubmit="return false" id="river-form">
+          <h2><span class="step">1</span>River dimensions</h2>
+          <div class="field-grid">
+            <div class="field">
+              <label for="len">Length</label>
+              <div class="input-wrap"><input type="number" id="len" data-len value="72" min="0" step="any" inputmode="decimal"><span class="suffix">in</span></div>
+            </div>
+            <div class="field">
+              <label for="wid">Average width <span class="hint">avg of several</span></label>
+              <div class="input-wrap"><input type="number" id="wid" data-len value="8" min="0" step="any" inputmode="decimal"><span class="suffix">in</span></div>
+            </div>
+            <div class="field">
+              <label for="dep">Depth (thickness)</label>
+              <div class="input-wrap"><input type="number" id="dep" data-len value="1.5" min="0" step="any" inputmode="decimal"><span class="suffix">in</span></div>
+            </div>
+            <div class="field">
+              <label for="cnt">Number of rivers</label>
+              <div class="input-wrap"><input type="number" id="cnt" value="1" min="1" step="1" inputmode="numeric"><span class="suffix">×</span></div>
+            </div>
+          </div>
+
+          <h2 style="margin-top:30px"><span class="step">2</span>Real-world adjustments</h2>
+          <div class="field-grid">
+            <div class="field full">
+              <label for="waste">Waste & seal-coat allowance <span class="hint">10–15% is typical</span></label>
+              <div class="range-row"><input type="range" id="waste" min="0" max="30" step="1" value="10"><span class="range-val" id="waste-v">10%</span></div>
+            </div>
+            <div class="field full">
+              <label for="disp">Displacement by stones, wood or objects <span class="hint">% of river filled</span></label>
+              <div class="range-row"><input type="range" id="disp" min="0" max="60" step="1" value="0"><span class="range-val" id="disp-v">0%</span></div>
+            </div>
+            <div class="field">
+              <label for="maxpour">Max depth per pour <span class="hint">see label</span></label>
+              <div class="input-wrap"><input type="number" id="maxpour" data-len value="2" min="0" step="any" inputmode="decimal"><span class="suffix">in</span></div>
+            </div>
+            <div class="field">
+              <label for="ratio">Mix ratio (by volume)</label>
+              <select id="ratio">
+                <option value="1">1 : 1</option>
+                <option value="2" selected>2 : 1</option>
+                <option value="3">3 : 1</option>
+                <option value="4">4 : 1</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+        <aside class="results glass" aria-live="polite">
+          <div class="viz" id="viz" aria-hidden="true"></div>
+          <div class="result-main" data-copy-line>
+            <div class="result-label">Total resin to buy</div>
+            <div class="result-big grad-text" id="r-main">—</div>
+            <div class="result-sub" id="r-alt">—</div>
+          </div>
+          <div class="result-list">
+            <div class="result-item" data-copy-line><div class="k">Approx. weight</div><div class="v" id="r-weight">—</div></div>
+            <div class="result-item" data-copy-line><div class="k">Pours needed</div><div class="v" id="r-pours">—</div></div>
+            <div class="result-item" data-copy-line><div class="k">Part A (resin)</div><div class="v" id="r-a">—</div></div>
+            <div class="result-item" data-copy-line><div class="k">Part B (hardener)</div><div class="v" id="r-b">—</div></div>
+            <div class="result-item wide" data-copy-line><div class="k">Per pour</div><div class="v" id="r-perpour">—</div></div>
+          </div>
+          <div class="note"><span>💡</span><span id="r-tip"><b>Tip:</b> Mix a little more than one pour needs. Running short mid-pour leaves visible lines in the resin.</span></div>
+          <div class="result-actions">
+            <button type="button" class="btn btn-ghost" id="btn-copy" data-copy>📋 Copy</button>
+            <button type="button" class="btn btn-ghost" id="btn-share" data-share>🔗 Share</button>
+            <button type="button" class="btn btn-ghost" id="btn-reset" data-reset>↺ Reset</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container content">
+        <h2>How to calculate epoxy for a river table</h2>
+        <p>A river is basically a long, irregular box. Work out the volume of that box, convert it to liquid units, then adjust for reality.</p>
+        <div class="formula">Volume (in³) = Length × Average width × Depth<br>US gallons = in³ ÷ 231 &nbsp;·&nbsp; US fl oz = in³ ÷ 1.805<br>Liters = (L × W × D in cm) ÷ 1000</div>
+
+        <h3>Worked example</h3>
+        <p>A 72" long river, averaging 8" wide and 1.5" deep:</p>
+        <ul>
+          <li>72 × 8 × 1.5 = <strong>864 in³</strong></li>
+          <li>864 ÷ 231 = <strong>3.74 gallons</strong> (14.2 L)</li>
+          <li>+10% waste ≈ <strong>4.1 gallons</strong> to buy</li>
+        </ul>
+
+        <h3>Measuring an irregular live edge</h3>
+        <p>Rivers are rarely straight. Lay a tape across the gap <strong>every 4–6 inches</strong> along its whole length, write down each width, and average them. The more measurements you take, the more accurate the result.</p>
+
+        <h3>Deep-pour vs. tabletop epoxy</h3>
+        <table class="data">
+          <thead><tr><th>Type</th><th>Typical max layer</th><th>Typical ratio</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr><td>Deep-pour / casting</td><td>1–4 in (2.5–10 cm)</td><td>2:1 or 3:1</td><td>River fill</td></tr>
+            <tr><td>Tabletop / coating</td><td>⅛–¼ in (3–6 mm)</td><td>1:1</td><td>Final flood coat</td></tr>
+          </tbody>
+        </table>
+        <p>For a glass-like finish, many makers fill the river with deep-pour resin, sand it flat, then add a thin flood coat of tabletop epoxy. You can work that coat out with the <a href="/resin-coating-calculator/">coating calculator</a>.</p>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq">
+          <details><summary>How much epoxy do I need for a river table?</summary><p>Multiply river length × average width × depth in inches, divide by 231 to get US gallons, then add 10–15% for waste. A 72 × 8 × 1.5 inch river needs about 3.7 gallons, or roughly 4.1 gallons with 10% extra.</p></details>
+          <details><summary>How do I measure the average width of an irregular river?</summary><p>Measure the width every 4–6 inches along the river, add the measurements together and divide by how many you took.</p></details>
+          <details><summary>How deep can I pour epoxy in one layer?</summary><p>It depends on the product. Tabletop epoxies are usually limited to about ⅛–¼ inch, while deep-pour casting resins allow 1–4 inches per layer. Pouring too thick can overheat the resin, causing cracks, yellowing or even smoke. Always check the label.</p></details>
+          <details><summary>Should I seal the wood before pouring?</summary><p>Yes. A thin seal coat on the live edges stops air escaping from the wood into your pour as bubbles. Budget about 3–5% extra resin for sealing; the default waste allowance already covers this.</p></details>
+        </div>
+
+        <h2>Related calculators</h2>
+        <div class="related">
+          <a class="glass" href="/resin-coating-calculator/"><span class="tool-icon">✨</span>Tabletop coating</a>
+          <a class="glass" href="/resin-mix-ratio-calculator/"><span class="tool-icon">⚖️</span>A:B mix ratio</a>
+          <a class="glass" href="/resin-cost-calculator/"><span class="tool-icon">💰</span>Resin cost & pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="#070a14"><path d="M12 2.5c-.3 0-.6.2-.8.4C8.6 6.4 5.5 10.6 5.5 14.3a6.5 6.5 0 0 0 13 0c0-3.7-3.1-7.9-5.7-11.4-.2-.2-.5-.4-.8-.4z"/></svg></span>ResinMath</a>
+          <p style="margin-top:12px;max-width:340px;font-size:.92rem">Free calculators for epoxy resin makers. Pour with confidence.</p>
+        </div>
+        <div>
+          <h4>Calculators</h4>
+          <ul>
+            <li><a href="/river-table-epoxy-calculator/">River table epoxy</a></li>
+            <li><a href="/resin-coating-calculator/">Tabletop coating</a></li>
+            <li><a href="/resin-mold-volume-calculator/">Mold volume</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>&nbsp;</h4>
+          <ul>
+            <li><a href="/resin-mix-ratio-calculator/">A:B mix ratio</a></li>
+            <li><a href="/resin-cost-calculator/">Resin cost & pricing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ResinMath</span><span>Results are estimates. Always follow your resin manufacturer's instructions.</span></div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/common.js" defer></script>
+  <script src="/assets/js/river.js" defer></script>
+</body>
+</html>

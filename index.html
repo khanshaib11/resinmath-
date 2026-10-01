@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ResinMath — Free Epoxy Resin Calculators (River Table, Molds, Coating)</title>
+  <meta name="description" content="Free epoxy resin calculators: work out exactly how much resin you need for river tables, molds, tabletop coats and resin art, plus A:B mix ratios and project cost. Metric & imperial.">
+  <link rel="canonical" href="https://resinmath.pages.dev/">
+  <meta name="theme-color" content="#070a14">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ResinMath">
+  <meta property="og:title" content="ResinMath — Free Epoxy Resin Calculators">
+  <meta property="og:description" content="Know exactly how much resin to buy. River tables, molds, coatings, mix ratios & cost.">
+  <meta property="og:url" content="https://resinmath.pages.dev/">
+  <meta property="og:image" content="https://resinmath.pages.dev/assets/img/resin-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"ResinMath","url":"https://resinmath.pages.dev/","description":"Free epoxy resin calculators for makers."}
+  </script>
+</head>
+<body>
+  <div class="bg-resin" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a href="/" class="logo" id="logo-link"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="#070a14"><path d="M12 2.5c-.3 0-.6.2-.8.4C8.6 6.4 5.5 10.6 5.5 14.3a6.5 6.5 0 0 0 13 0c0-3.7-3.1-7.9-5.7-11.4-.2-.2-.5-.4-.8-.4z"/></svg></span>ResinMath</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/river-table-epoxy-calculator/">River Table</a></li>
+        <li><a href="/resin-coating-calculator/">Coating</a></li>
+        <li><a href="/resin-mold-volume-calculator/">Molds</a></li>
+        <li><a href="/resin-mix-ratio-calculator/">Mix Ratio</a></li>
+        <li><a href="/resin-cost-calculator/">Cost</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="unit-toggle" role="group" aria-label="Unit system"><span class="pill"></span><button type="button" id="unit-imperial" data-unit="imperial">in / oz</button><button type="button" id="unit-metric" data-unit="metric">cm / ml</button></div>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero hero-home">
+      <div class="hero-img" aria-hidden="true"></div>
+      <div class="container">
+        <span class="eyebrow"><span class="dot"></span>Free · No sign-up · Works offline</span>
+        <h1>Stop guessing.<br><span class="grad-text">Pour the perfect amount</span><br>of epoxy resin.</h1>
+        <p class="lead">Precise, beautiful calculators for river tables, molds, tabletop coats and resin art. Buy the right kit, mix the right ratio, and never run short mid-pour again.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" id="cta-river" href="/river-table-epoxy-calculator/">Calculate a river table →</a>
+          <a class="btn btn-ghost" id="cta-all" href="#tools">See all calculators</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>5</strong><span>specialist calculators</span></div>
+          <div class="stat"><strong>in ⇄ cm</strong><span>one-click units</span></div>
+          <div class="stat"><strong>0 sec</strong><span>instant results</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Pick your project</h2>
+          <p>Every calculator shows volume, weight and Part A / Part B amounts, and gives you a link you can share or save.</p>
+        </div>
+        <div class="tool-grid">
+          <a class="tool-card glass reveal" id="card-river" href="/river-table-epoxy-calculator/">
+            <span class="tool-icon">🌊</span>
+            <h3>River Table Epoxy Calculator</h3>
+            <p>Length × average width × depth, with waste allowance, embedded-object displacement and how many deep pours you need.</p>
+            <span class="go">Open calculator <span>→</span></span>
+          </a>
+          <a class="tool-card glass reveal" id="card-coating" href="/resin-coating-calculator/">
+            <span class="tool-icon">✨</span>
+            <h3>Tabletop & Resin Art Coating</h3>
+            <p>Flood coats for bar tops, countertops, canvases and round tables. Pick a coat thickness and drip-off allowance.</p>
+            <span class="go">Open calculator <span>→</span></span>
+          </a>
+          <a class="tool-card glass reveal" id="card-mold" href="/resin-mold-volume-calculator/">
+            <span class="tool-icon">🧊</span>
+            <h3>Mold Volume Calculator</h3>
+            <p>Coasters, spheres, domes, cones, trays, or the water method for odd-shaped molds. Multiply by how many you're casting.</p>
+            <span class="go">Open calculator <span>→</span></span>
+          </a>
+          <a class="tool-card glass reveal" id="card-mix" href="/resin-mix-ratio-calculator/">
+            <span class="tool-icon">⚖️</span>
+            <h3>A:B Mix Ratio Calculator</h3>
+            <p>Split any total into resin and hardener by volume or by weight: 1:1, 2:1, 3:1, 100:45 or your own ratio.</p>
+            <span class="go">Open calculator <span>→</span></span>
+          </a>
+          <a class="tool-card glass reveal" id="card-cost" href="/resin-cost-calculator/">
+            <span class="tool-icon">💰</span>
+            <h3>Resin Cost & Pricing</h3>
+            <p>Find the true cost of a piece, how many kits to buy, and a suggested selling price with your markup.</p>
+            <span class="go">Open calculator <span>→</span></span>
+          </a>
+          <div class="tool-card glass reveal" aria-disabled="true">
+            <span class="tag-soon">Coming soon</span>
+            <span class="tool-icon">🪵</span>
+            <h3>Wood Finish & Board Feet</h3>
+            <p>More maker calculators are on the way. Tell us which one you want next!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Built for people who actually pour</h2>
+          <p>Resin is expensive and unforgiving. These tools build in the details that most quick formulas leave out.</p>
+        </div>
+        <div class="features">
+          <div class="feature glass reveal"><span class="tool-icon">🧮</span><h3>Real-world math</h3><p>Waste and drip-off allowances, displacement from wood or stones, and deep-pour layer limits.</p></div>
+          <div class="feature glass reveal"><span class="tool-icon">🔁</span><h3>Imperial ⇄ metric</h3><p>Switch units and your numbers convert automatically. Results show fl oz, gallons, ml, liters, lb and kg.</p></div>
+          <div class="feature glass reveal"><span class="tool-icon">🔗</span><h3>Share & save</h3><p>Every result has its own link. Send it to a client, or bookmark it for the next pour.</p></div>
+          <div class="feature glass reveal"><span class="tool-icon">🔒</span><h3>Private & fast</h3><p>Everything runs in your browser. No accounts, no tracking of your projects, no waiting.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container content reveal">
+        <h2>How much epoxy resin do I need?</h2>
+        <p>Resin is sold by volume, so every project comes down to one question: <strong>how many cubic inches (or cm³) am I filling?</strong> Multiply length × width × depth to get the volume, then convert it: 1 US fl oz is 1.805 in³, 1 US gallon is 231 in³, and 1 ml is exactly 1 cm³. Most makers add <strong>10–15% extra</strong> for what stays behind in cups and what drips off the edges.</p>
+        <p>Choose the calculator above that matches your project. Each one explains the formula, gives worked examples, and answers common questions so you can pour with confidence.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="#070a14"><path d="M12 2.5c-.3 0-.6.2-.8.4C8.6 6.4 5.5 10.6 5.5 14.3a6.5 6.5 0 0 0 13 0c0-3.7-3.1-7.9-5.7-11.4-.2-.2-.5-.4-.8-.4z"/></svg></span>ResinMath</a>
+          <p style="margin-top:12px;max-width:340px;font-size:.92rem">Free calculators for epoxy resin makers. Pour with confidence.</p>
+        </div>
+        <div>
+          <h4>Calculators</h4>
+          <ul>
+            <li><a href="/river-table-epoxy-calculator/">River table epoxy</a></li>
+            <li><a href="/resin-coating-calculator/">Tabletop coating</a></li>
+            <li><a href="/resin-mold-volume-calculator/">Mold volume</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>&nbsp;</h4>
+          <ul>
+            <li><a href="/resin-mix-ratio-calculator/">A:B mix ratio</a></li>
+            <li><a href="/resin-cost-calculator/">Resin cost & pricing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ResinMath</span><span>Results are estimates. Always follow your resin manufacturer's instructions.</span></div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/common.js" defer></script>
+</body>
+</html>

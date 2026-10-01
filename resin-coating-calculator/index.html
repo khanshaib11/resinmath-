@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Epoxy Coating Calculator — Tabletop, Bar Top & Resin Art | ResinMath</title>
+  <meta name="description" content="Free epoxy coating calculator for tabletops, bar tops, countertops and resin art. Get the exact amount of resin for a flood coat by size, thickness and number of coats, including drip-off.">
+  <link rel="canonical" href="https://resinmath.pages.dev/resin-coating-calculator/">
+  <meta name="theme-color" content="#070a14">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ResinMath">
+  <meta property="og:title" content="Epoxy Coating Calculator — Tabletop & Resin Art">
+  <meta property="og:description" content="How much epoxy for a flood coat? Rectangle or round, any thickness, multiple coats.">
+  <meta property="og:url" content="https://resinmath.pages.dev/resin-coating-calculator/">
+  <meta property="og:image" content="https://resinmath.pages.dev/assets/img/resin-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  [{"@context":"https://schema.org","@type":"WebApplication","name":"Epoxy Coating Calculator","url":"https://resinmath.pages.dev/resin-coating-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://resinmath.pages.dev/"},{"@type":"ListItem","position":2,"name":"Epoxy Coating Calculator","item":"https://resinmath.pages.dev/resin-coating-calculator/"}]},
+   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much epoxy do I need to coat a table?","acceptedAnswer":{"@type":"Answer","text":"Multiply length × width × coat thickness. For a standard 1/8 inch flood coat, one US gallon covers about 12 square feet. Add around 15% for drips off the edges."}},
+    {"@type":"Question","name":"How thick is a flood coat of epoxy?","acceptedAnswer":{"@type":"Answer","text":"Most tabletop epoxies self-level at about 1/8 inch (3 mm) per coat. Thicker coats can overheat or run off, so build up thickness with multiple coats."}},
+    {"@type":"Question","name":"How much resin do I need for a resin art canvas?","acceptedAnswer":{"@type":"Answer","text":"A thin artistic layer is about 1/16 inch. A 12 × 12 inch canvas needs roughly 5 fl oz (150 ml) at that thickness, plus 15–20% for edges."}}
+   ]}]
+  </script>
+</head>
+<body>
+  <div class="bg-resin" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a href="/" class="logo" id="logo-link"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="#070a14"><path d="M12 2.5c-.3 0-.6.2-.8.4C8.6 6.4 5.5 10.6 5.5 14.3a6.5 6.5 0 0 0 13 0c0-3.7-3.1-7.9-5.7-11.4-.2-.2-.5-.4-.8-.4z"/></svg></span>ResinMath</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/river-table-epoxy-calculator/">River Table</a></li>
+        <li><a href="/resin-coating-calculator/" aria-current="page">Coating</a></li>
+        <li><a href="/resin-mold-volume-calculator/">Molds</a></li>
+        <li><a href="/resin-mix-ratio-calculator/">Mix Ratio</a></li>
+        <li><a href="/resin-cost-calculator/">Cost</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="unit-toggle" role="group" aria-label="Unit system"><span class="pill"></span><button type="button" id="unit-imperial" data-unit="imperial">in / oz</button><button type="button" id="unit-metric" data-unit="metric">cm / ml</button></div>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / Epoxy Coating Calculator</div>
+        <h1>Epoxy <span class="grad-text">Coating Calculator</span></h1>
+        <p class="lead">Flood coats for tabletops, bar tops, countertops, charcuterie boards and resin art. Pick the shape, set the thickness, and see exactly how much to mix.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="calc-wrap">
+        <form class="calc-panel glass" data-calc onsubmit="return false" id="coat-form">
+          <h2><span class="step">1</span>Surface shape</h2>
+          <div class="seg" data-seg="shape" role="group" aria-label="Shape">
+            <button type="button" id="shape-rect" data-value="rect" aria-pressed="true"><span class="ico">▭</span>Rectangle</button>
+            <button type="button" id="shape-circle" data-value="circle" aria-pressed="false"><span class="ico">◯</span>Round</button>
+          </div>
+          <div class="field-grid">
+            <div class="field" data-for="rect">
+              <label for="len">Length</label>
+              <div class="input-wrap"><input type="number" id="len" data-len value="48" min="0" step="any" inputmode="decimal"><span class="suffix">in</span></div>
+            </div>
+            <div class="field" data-for="rect">
+              <label for="wid">Width</label>
+              <div class="input-wrap"><input type="number" id="wid" data-len value="30" min="0" step="any" inputmode="decimal"><span class="suffix">in</span></div>
+            </div>
+            <div class="field full" data-for="circle" hidden>
+              <label for="dia">Diameter</label>
+              <div class="input-wrap"><input type="number" id="dia" data-len value="36" min="0" step="any" inputmode="decimal"><span class="suffix">in</span></div>
+            </div>
+          </div>
+
+          <h2 style="margin-top:30px"><span class="step">2</span>Coat details</h2>
+          <div class="field-grid">
+            <div class="field">
+              <label for="thk">Thickness per coat <span class="hint">⅛" = 0.125</span></label>
+              <div class="input-wrap"><input type="number" id="thk" data-len value="0.125" min="0" step="any" inputmode="decimal"><span class="suffix">in</span></div>
+            </div>
+            <div class="field">
+              <label for="coats">Number of coats</label>
+              <div class="input-wrap"><input type="number" id="coats" value="1" min="1" step="1" inputmode="numeric"><span class="suffix">×</span></div>
+            </div>
+            <div class="field full">
+              <label for="drip">Drip-off & mixing loss <span class="hint">15% typical, 20%+ for edges</span></label>
+              <div class="range-row"><input type="range" id="drip" min="0" max="40" step="1" value="15"><span class="range-val" id="drip-v">15%</span></div>
+            </div>
+            <div class="field full">
+              <label for="ratio">Mix ratio (by volume)</label>
+              <select id="ratio">
+                <option value="1" selected>1 : 1 (most tabletop epoxies)</option>
+                <option value="2">2 : 1</option>
+                <option value="3">3 : 1</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+        <aside class="results glass" aria-live="polite">
+          <div class="result-main" data-copy-line>
+            <div class="result-label">Total epoxy to mix</div>
+            <div class="result-big grad-text" id="r-main">—</div>
+            <div class="result-sub" id="r-alt">—</div>
+          </div>
+          <div class="result-list">
+            <div class="result-item" data-copy-line><div class="k">Surface area</div><div class="v" id="r-area">—</div></div>
+            <div class="result-item" data-copy-line><div class="k">Per coat</div><div class="v" id="r-coat">—</div></div>
+            <div class="result-item" data-copy-line><div class="k">Part A (resin)</div><div class="v" id="r-a">—</div></div>
+            <div class="result-item" data-copy-line><div class="k">Part B (hardener)</div><div class="v" id="r-b">—</div></div>
+            <div class="result-item wide" data-copy-line><div class="k">Approx. weight</div><div class="v" id="r-weight">—</div></div>
+          </div>
+          <div class="note"><span>💡</span><span><b>Tip:</b> Tape the underside of the edges before you pour, then peel the tape once the resin is tacky. Drips come off with it.</span></div>
+          <div class="result-actions">
+            <button type="button" class="btn btn-ghost" id="btn-copy" data-copy>📋 Copy</button>
+            <button type="button" class="btn btn-ghost" id="btn-share" data-share>🔗 Share</button>
+            <button type="button" class="btn btn-ghost" id="btn-reset" data-reset>↺ Reset</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container content">
+        <h2>How to calculate epoxy for a flood coat</h2>
+        <div class="formula">Rectangle: Volume = Length × Width × Thickness<br>Round: Volume = π × (Diameter ÷ 2)² × Thickness<br>US fl oz = in³ ÷ 1.805 · ml = cm³</div>
+        <h3>Quick coverage chart (⅛" / 3 mm coat)</h3>
+        <table class="data">
+          <thead><tr><th>Surface</th><th>Size</th><th>Epoxy (incl. 15%)</th></tr></thead>
+          <tbody>
+            <tr><td>Coaster set (4)</td><td>4" × 4" each</td><td>≈ 5 fl oz / 150 ml</td></tr>
+            <tr><td>Charcuterie board</td><td>18" × 10"</td><td>≈ 14 fl oz / 420 ml</td></tr>
+            <tr><td>Coffee table</td><td>48" × 24"</td><td>≈ 0.72 gal / 2.7 L</td></tr>
+            <tr><td>Dining table</td><td>72" × 36"</td><td>≈ 1.6 gal / 6.1 L</td></tr>
+            <tr><td>Bar top</td><td>96" × 24"</td><td>≈ 1.4 gal / 5.4 L</td></tr>
+          </tbody>
+        </table>
+        <h3>Rule of thumb</h3>
+        <p>At ⅛ inch, <strong>one US gallon covers about 12 square feet</strong> (1.2 m²). If your surface is porous wood, brush on a thin seal coat first. It soaks in, and it stops bubbles from rising into the flood coat.</p>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq">
+          <details><summary>How much epoxy do I need to coat a table?</summary><p>Multiply length × width × coat thickness. For a standard ⅛ inch flood coat, one US gallon covers about 12 square feet. Add around 15% for drips off the edges.</p></details>
+          <details><summary>How thick is a flood coat of epoxy?</summary><p>Most tabletop epoxies self-level at about ⅛ inch (3 mm) per coat. Thicker coats can overheat or run off, so build up thickness with multiple coats.</p></details>
+          <details><summary>How much resin do I need for a resin art canvas?</summary><p>A thin artistic layer is about 1/16 inch (0.0625). A 12 × 12 inch canvas needs roughly 5 fl oz (150 ml) at that thickness, plus 15–20% for the edges.</p></details>
+        </div>
+
+        <h2>Related calculators</h2>
+        <div class="related">
+          <a class="glass" href="/river-table-epoxy-calculator/"><span class="tool-icon">🌊</span>River table epoxy</a>
+          <a class="glass" href="/resin-mix-ratio-calculator/"><span class="tool-icon">⚖️</span>A:B mix ratio</a>
+          <a class="glass" href="/resin-cost-calculator/"><span class="tool-icon">💰</span>Resin cost & pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="#070a14"><path d="M12 2.5c-.3 0-.6.2-.8.4C8.6 6.4 5.5 10.6 5.5 14.3a6.5 6.5 0 0 0 13 0c0-3.7-3.1-7.9-5.7-11.4-.2-.2-.5-.4-.8-.4z"/></svg></span>ResinMath</a>
+          <p style="margin-top:12px;max-width:340px;font-size:.92rem">Free calculators for epoxy resin makers. Pour with confidence.</p>
+        </div>
+        <div>
+          <h4>Calculators</h4>
+          <ul>
+            <li><a href="/river-table-epoxy-calculator/">River table epoxy</a></li>
+            <li><a href="/resin-coating-calculator/">Tabletop coating</a></li>
+            <li><a href="/resin-mold-volume-calculator/">Mold volume</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>&nbsp;</h4>
+          <ul>
+            <li><a href="/resin-mix-ratio-calculator/">A:B mix ratio</a></li>
+            <li><a href="/resin-cost-calculator/">Resin cost & pricing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ResinMath</span><span>Results are estimates. Always follow your resin manufacturer's instructions.</span></div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/common.js" defer></script>
+  <script src="/assets/js/coating.js" defer></script>
+</body>
+</html>

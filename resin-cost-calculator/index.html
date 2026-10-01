@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resin Cost & Project Pricing Calculator | ResinMath</title>
+  <meta name="description" content="Calculate the true material cost of epoxy resin per project, determine how many kits to buy, factor in wood, pigments and labor, and calculate profitable retail and wholesale prices.">
+  <link rel="canonical" href="https://resinmath.pages.dev/resin-cost-calculator/">
+  <meta name="theme-color" content="#070a14">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ResinMath">
+  <meta property="og:title" content="Resin Cost & Project Pricing Calculator">
+  <meta property="og:description" content="Stop underpricing your handmade work. Calculate true resin costs, kit purchases, labor and healthy profit margins.">
+  <meta property="og:url" content="https://resinmath.pages.dev/resin-cost-calculator/">
+  <meta property="og:image" content="https://resinmath.pages.dev/assets/img/resin-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  [{"@context":"https://schema.org","@type":"WebApplication","name":"Resin Cost & Project Pricing Calculator","url":"https://resinmath.pages.dev/resin-cost-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://resinmath.pages.dev/"},{"@type":"ListItem","position":2,"name":"Resin Cost & Pricing Calculator","item":"https://resinmath.pages.dev/resin-cost-calculator/"}]},
+   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does epoxy resin cost per gallon?","acceptedAnswer":{"@type":"Answer","text":"Quality deep-pour epoxy typically costs between $90 and $150 per gallon when purchased in 1.5 to 3 gallon kits. Premium tabletop coating epoxies range from $70 to $120 per gallon."}},
+    {"@type":"Question","name":"How should I price handmade resin tables and crafts?","acceptedAnswer":{"@type":"Answer","text":"Standard maker pricing is: (Total Materials + Consumables + [Hours × Hourly Wage]) × 1.3 to 1.5 for Wholesale, and × 2.0 to 2.5 for Direct Retail. Never price based on resin cost alone."}},
+    {"@type":"Question","name":"How do I calculate kit purchase requirement?","acceptedAnswer":{"@type":"Answer","text":"Always divide your required pour volume by the kit size and round UP to the next integer. You cannot buy 0.4 of an epoxy kit."}}
+   ]}]
+  </script>
+</head>
+<body>
+  <div class="bg-resin" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a href="/" class="logo" id="logo-link"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="#070a14"><path d="M12 2.5c-.3 0-.6.2-.8.4C8.6 6.4 5.5 10.6 5.5 14.3a6.5 6.5 0 0 0 13 0c0-3.7-3.1-7.9-5.7-11.4-.2-.2-.5-.4-.8-.4z"/></svg></span>ResinMath</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/river-table-epoxy-calculator/">River Table</a></li>
+        <li><a href="/resin-coating-calculator/">Coating</a></li>
+        <li><a href="/resin-mold-volume-calculator/">Molds</a></li>
+        <li><a href="/resin-mix-ratio-calculator/">Mix Ratio</a></li>
+        <li><a href="/resin-cost-calculator/" aria-current="page">Cost</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="unit-toggle" role="group" aria-label="Unit system"><span class="pill"></span><button type="button" id="unit-imperial" data-unit="imperial">in / oz</button><button type="button" id="unit-metric" data-unit="metric">cm / ml</button></div>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / Resin Cost & Pricing Calculator</div>
+        <h1>Resin Cost & <span class="grad-text">Pricing Calculator</span></h1>
+        <p class="lead">Know your exact material expense, determine kit purchases, factor in wood, pigments and labor hours, and set profitable retail prices.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="calc-wrap">
+        <form class="calc-panel glass" data-calc onsubmit="return false" id="cost-form">
+          <h2><span class="step">1</span>Resin volume & kit details</h2>
+          <div class="field-grid">
+            <div class="field">
+              <label for="resin-needed">Resin Needed for Project</label>
+              <div class="input-wrap"><input type="number" id="resin-needed" value="1.5" min="0" step="any" inputmode="decimal"><span class="suffix" id="resin-unit-suf">gal</span></div>
+            </div>
+            <div class="field">
+              <label for="kit-size">Kit Size Available to Buy</label>
+              <div class="input-wrap"><input type="number" id="kit-size" value="1.5" min="0.01" step="any" inputmode="decimal"><span class="suffix" id="kit-unit-suf">gal</span></div>
+            </div>
+            <div class="field">
+              <label for="kit-price">Kit Price</label>
+              <div class="input-wrap"><input type="number" id="kit-price" value="140" min="0" step="any" inputmode="decimal"><span class="suffix">$</span></div>
+            </div>
+            <div class="field">
+              <label for="currency-symbol">Currency Symbol</label>
+              <select id="currency-symbol">
+                <option value="$" selected>$ (USD / CAD / AUD)</option>
+                <option value="£">£ (GBP)</option>
+                <option value="€">€ (EUR)</option>
+                <option value="₹">₹ (INR)</option>
+                <option value="¥">¥ (JPY / CNY)</option>
+              </select>
+            </div>
+          </div>
+
+          <h2 style="margin-top:30px"><span class="step">2</span>Other materials & labor</h2>
+          <div class="field-grid">
+            <div class="field">
+              <label for="cost-wood">Wood / base / slabs</label>
+              <div class="input-wrap"><input type="number" id="cost-wood" value="85" min="0" step="any" inputmode="decimal"><span class="suffix" data-cur>$</span></div>
+            </div>
+            <div class="field">
+              <label for="cost-consumables">Pigments, cups, sanding</label>
+              <div class="input-wrap"><input type="number" id="cost-consumables" value="25" min="0" step="any" inputmode="decimal"><span class="suffix" data-cur>$</span></div>
+            </div>
+            <div class="field">
+              <label for="labor-hours">Labor hours</label>
+              <div class="input-wrap"><input type="number" id="labor-hours" value="6" min="0" step="any" inputmode="decimal"><span class="suffix">hrs</span></div>
+            </div>
+            <div class="field">
+              <label for="hourly-rate">Hourly rate</label>
+              <div class="input-wrap"><input type="number" id="hourly-rate" value="35" min="0" step="any" inputmode="decimal"><span class="suffix" data-cur>$</span></div>
+            </div>
+            <div class="field full">
+              <label for="markup">Target profit markup <span class="hint">100% = 2x wholesale / standard craft retail</span></label>
+              <div class="range-row"><input type="range" id="markup" min="20" max="250" step="5" value="100"><span class="range-val" id="markup-v">100%</span></div>
+            </div>
+          </div>
+        </form>
+
+        <aside class="results glass" aria-live="polite">
+          <div class="result-main" data-copy-line>
+            <div class="result-label">Recommended Retail Price</div>
+            <div class="result-big grad-text" id="r-retail">—</div>
+            <div class="result-sub" id="r-wholesale">—</div>
+          </div>
+
+          <div class="result-list">
+            <div class="result-item" data-copy-line><div class="k">Resin Used Cost</div><div class="v" id="r-resincost">—</div></div>
+            <div class="result-item" data-copy-line><div class="k">Kits to Purchase</div><div class="v" id="r-kits">—</div></div>
+            <div class="result-item" data-copy-line><div class="k">All Materials Total</div><div class="v" id="r-matcost">—</div></div>
+            <div class="result-item" data-copy-line><div class="k">Labor Value</div><div class="v" id="r-laborcost">—</div></div>
+            <div class="result-item wide" data-copy-line><div class="k">Total Cost of Production</div><div class="v" id="r-prodcost">—</div></div>
+            <div class="result-item wide" data-copy-line><div class="k">Unit Resin Cost Rate</div><div class="v" id="r-unitrate">—</div></div>
+          </div>
+
+          <div class="note"><span>💡</span><span id="r-kit-note"><b>Kit purchase note:</b> Always round up kit purchases so you never run dry during the final 10% of a pour.</span></div>
+
+          <div class="result-actions">
+            <button type="button" class="btn btn-ghost" id="btn-copy" data-copy>📋 Copy</button>
+            <button type="button" class="btn btn-ghost" id="btn-share" data-share>🔗 Share</button>
+            <button type="button" class="btn btn-ghost" id="btn-reset" data-reset>↺ Reset</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container content">
+        <h2>How to Price Resin Work Without Losing Money</h2>
+        <p>Most makers undercharge because they only add up resin and wood, completely forgetting the cost of <strong>consumables (sandpaper discs, mixing pails, polishing compound, PPE)</strong> and their own skilled shop hours.</p>
+
+        <div class="formula">
+          Resin Rate = Kit Price ÷ Kit Volume<br>
+          Resin Used Cost = Required Volume × Resin Rate<br>
+          Total Materials = Resin Used + Wood + Consumables<br>
+          Production Cost = Materials + (Labor Hours × Hourly Wage)<br>
+          Retail Price = Production Cost × (1 + Markup %)
+        </div>
+
+        <h3>Standard Handcrafted Markup Multipliers</h3>
+        <table class="data">
+          <thead><tr><th>Channel</th><th>Markup %</th><th>Multiplier</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Direct to Friend / Family</td><td>25% – 40%</td><td>1.25x – 1.4x</td><td>Covers wear & tear and modest labor</td></tr>
+            <tr><td>Wholesale / Consignment</td><td>50% – 60%</td><td>1.5x – 1.6x</td><td>Allows gallery or store to take their 40–50% cut</td></tr>
+            <tr><td>Direct Retail (Etsy, Website, Market)</td><td>100% – 150%</td><td>2.0x – 2.5x</td><td>Standard sustainable business markup</td></tr>
+            <tr><td>High-End Custom / Luxury Commissions</td><td>200%+</td><td>3.0x+</td><td>Unique art pieces, live-edge statement tables</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq">
+          <details><summary>How much does epoxy resin cost per gallon?</summary><p>Quality deep-pour epoxy typically costs between $90 and $150 per gallon when purchased in 1.5 to 3 gallon kits. Premium tabletop coating epoxies range from $70 to $120 per gallon.</p></details>
+          <details><summary>How should I price handmade resin tables and crafts?</summary><p>Standard maker pricing is: (Total Materials + Consumables + [Hours × Hourly Wage]) × 1.3 to 1.5 for Wholesale, and × 2.0 to 2.5 for Direct Retail. Never price based on resin cost alone.</p></details>
+          <details><summary>How do I calculate kit purchase requirement?</summary><p>Always divide your required pour volume by the kit size and round UP to the next integer. You cannot buy 0.4 of an epoxy kit.</p></details>
+        </div>
+
+        <h2>Related calculators</h2>
+        <div class="related">
+          <a class="glass" href="/river-table-epoxy-calculator/"><span class="tool-icon">🌊</span>River table epoxy</a>
+          <a class="glass" href="/resin-coating-calculator/"><span class="tool-icon">✨</span>Tabletop coating</a>
+          <a class="glass" href="/resin-mold-volume-calculator/"><span class="tool-icon">🧊</span>Mold volume</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="#070a14"><path d="M12 2.5c-.3 0-.6.2-.8.4C8.6 6.4 5.5 10.6 5.5 14.3a6.5 6.5 0 0 0 13 0c0-3.7-3.1-7.9-5.7-11.4-.2-.2-.5-.4-.8-.4z"/></svg></span>ResinMath</a>
+          <p style="margin-top:12px;max-width:340px;font-size:.92rem">Free calculators for epoxy resin makers. Pour with confidence.</p>
+        </div>
+        <div>
+          <h4>Calculators</h4>
+          <ul>
+            <li><a href="/river-table-epoxy-calculator/">River table epoxy</a></li>
+            <li><a href="/resin-coating-calculator/">Tabletop coating</a></li>
+            <li><a href="/resin-mold-volume-calculator/">Mold volume</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>&nbsp;</h4>
+          <ul>
+            <li><a href="/resin-mix-ratio-calculator/">A:B mix ratio</a></li>
+            <li><a href="/resin-cost-calculator/">Resin cost & pricing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> ResinMath</span><span>Results are estimates. Always follow your resin manufacturer's instructions.</span></div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/common.js" defer></script>
+  <script src="/assets/js/cost.js" defer></script>
+</body>
+</html>
