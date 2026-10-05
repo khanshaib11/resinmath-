@@ -217,6 +217,13 @@
 
     const y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
+
+    // Register offline Service Worker for zero-internet PWA caching
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js").catch(() => {});
+      });
+    }
   });
 
   window.RM = RM;
